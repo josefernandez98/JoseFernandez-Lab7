@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "Usuario.h"
 
 using namespace std;
@@ -13,6 +14,14 @@ Usuario::Usuario (string nomrbe, string correo, string password) {
     this->password = password;
 }//Fin del metodo
 
+string Usuario::toString() {
+    stringstream ss;
+    ss << "Nombre: " << nombre << endl;
+    ss << "Apellido: " << apellido << endl;
+    ss << "Sobrenombre: " << sobrenombre << endl;
+    ss << "Nivel: " << nivel << endl;
+    return ss.str();
+}//Fin del to string
 
 Usuario::~Usuario() {
     cout << "Destructor usuario..." << endl;

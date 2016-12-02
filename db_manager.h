@@ -13,4 +13,5 @@ class db_manager : public Usuario {
         db_manager(int);
         int getSueldo();
         void setSueldo();
+        string toString();
 };

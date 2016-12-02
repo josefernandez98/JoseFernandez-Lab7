@@ -13,4 +13,6 @@ class db_intern : public Usuario {
         db_intern(int);
         int getDias();
         void setDias();
+        string toString();
+
 };

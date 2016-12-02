@@ -13,4 +13,5 @@ class db_administrador : public Usuario {
         db_administrador(string);
         string getFecha();
         void setFecha();
+        string toString();
 };

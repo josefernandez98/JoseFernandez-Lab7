@@ -18,5 +18,6 @@ class Usuario {
         string correo;
         string password;
         virtual ~Usuario();
+        string toString();
         virtual int TamContra(string);
 };

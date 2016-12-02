@@ -13,4 +13,5 @@ class db_supervisor : public Usuario {
         db_supervisor(int);
         int getContador();
         void setContador();
+        string toString();
 };
