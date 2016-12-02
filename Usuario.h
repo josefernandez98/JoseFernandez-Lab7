@@ -7,6 +7,7 @@ using namespace std;
 class Usuario {
     protected:
         Usuario();
+        Usuario(string, string, string)
         void setNombre(string);
         void setCorreo(string);
         void setPassword(string);
