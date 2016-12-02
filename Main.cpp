@@ -25,8 +25,20 @@ int main(int argc, char const *argv[]) {
     cout << endl << "Ingrese la password del usuario:";
     cin >> pass;
     if ((administrador->getNombre() == nombre) && (administrador->getPassword() == pass)) {
-        cout << "entro.";
-    }
+        while (true) {
+            MenuAdmin();
+        }
+    } else {
+        for (int i = 0; i < 10; i++) {
+
+        }//Fin del for
+        for (int i = 0; i < 10; i++) {
+
+        }//Fin del for
+        for (int i = 0; i < 10; i++) {
+
+        }//Fin del for
+    }//Fin del if padre
 
 
 
@@ -59,7 +71,7 @@ void MenuAdmin() {
     if (opcion == 1) {
         cout << "1. Crear Manager." << endl;
         cout << "2. Crear Intern." << endl;
-        cout << "3. crear Supervisor." << endl;
+        cout << "3. Crear Supervisor." << endl;
         cout << "Ingrese su opcion:";
         cin >> subOpcion;
         if ((subOpcion <= 0) || (subOpcion > 3)) {
@@ -148,6 +160,80 @@ void MenuAdmin() {
     }//Fin del if opcion 1
 
     if (opcion == 2) {
+        int pos = 0;
+        cout << "1. Eliminar Manager." << endl;
+        cout << "2. Eliminar Intern." << endl;
+        cout << "3. Eliminar Supervisor." << endl;
+        cout << "Ingrese su opcion:";
+        cin >> subOpcion;
+        if ((subOpcion <= 0) || (subOpcion > 3)) {
+            for (;(subOpcion <= 0) || (subOpcion > 3);) {
+                cout << "Valor invalido." << endl;
+                cout << "Ingrese su opcion:";
+                cin >> opcion;
+            }//Fin del for
+        }//Fin del if
 
-    }//Fin del if opcion2
+        if (subOpcion == 1) {
+
+            cout << "Ingrese la posicion del usuario:";
+            cin >> pos;
+            if ((pos < 0) || (pos >= managers.size())) {
+                for (;(pos < 0) || (pos >= managers.size());) {
+                    cout << "Posicion invalida." << endl;
+                    cout << "Ingrese la posicion del usuario:";
+                    cin >> pos;
+                }//Fin del for
+                cout << endl;
+            }//Fin del if
+            managers.erase(managers.begin() + pos);
+            fstream file;
+            file.open("Managers.txt");
+            for (int i = 0; i < managers.size(); i++) {
+                file << managers[i]->toString();
+                file << endl;
+            }//Fin del for
+            manager = NULL;
+        }//Fin subopcion 1
+
+        if (subOpcion == 2) {
+
+            cout << endl << "Ingrese la posicion del usuario:";
+            cin >> pos;
+            if ((pos < 0) || (pos >= interns.size())) {
+                for (;(pos < 0) || (pos >= interns.size());) {
+                    cout << "Valor invalido." << endl;
+                    cout << "Ingrese la posicion del usuario:";
+                    cin >> pos;
+                }//Fin del for
+            }//Fin del if sueldo
+
+            fstream file;
+            file.open("Interns.txt");
+            for (int i = 0; i < interns.size(); i++) {
+                file << interns[i]->toString();
+                file << endl;
+            }//Fin del for
+            intern = NULL;
+        }//Fin subOpcion2
+
+        if (subOpcion == 3) {
+            cout << "Ingrese el nombre de usuario:";
+            cin >> nombre;
+            cout << endl << "Ingrese el correo del usuario:";
+            cin >> correo;
+            cout << endl << "Ingrese la contrasena del usuario:";
+            cin >> password;
+            contador++;
+            supervisor = new db_supervisor(nombre, correo, password, contador);
+            supervisors.push_back(supervisor);
+            fstream file;
+            file.open("Supervisors.txt", ios::app);
+            for (int i = 0; i < supervisors.size(); i++) {
+                file << supervisors[i]->toString();
+                file << endl;
+            }//Fin del for
+            supervisor = NULL;
+        }//Fin del if opcion2
+    }
 }//Fin del menu admin
