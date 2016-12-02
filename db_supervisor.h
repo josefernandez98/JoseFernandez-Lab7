@@ -11,6 +11,7 @@ class db_supervisor : public Usuario {
     public:
         db_supervisor();
         db_supervisor(int);
+        virtual ~db_supervisor();
         int getContador();
         void setContador();
         string toString();

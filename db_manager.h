@@ -11,6 +11,7 @@ class db_manager : public Usuario {
     public:
         db_manager();
         db_manager(int);
+        virtual ~db_manager();
         int getSueldo();
         void setSueldo();
         string toString();

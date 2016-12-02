@@ -11,6 +11,7 @@ class db_intern : public Usuario {
     public:
         db_intern();
         db_intern(int);
+        virtual ~db_intern();
         int getDias();
         void setDias();
         string toString();

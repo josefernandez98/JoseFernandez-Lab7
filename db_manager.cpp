@@ -17,3 +17,7 @@ string db_manager::toString() {
     ss << Usuario::toString() << " Sueldo: " << sueldo << endl;
     return ss.str();
 }//Fin
+
+db_manager::~db_manager() {
+
+}//Fin

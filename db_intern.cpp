@@ -17,3 +17,7 @@ string db_intern::toString() {
     ss << Usuario::toString() << " Dias: " << dias << endl;
     return ss.str();
 }
+
+db_intern::~db_intern() {
+
+}//Fin

@@ -17,3 +17,7 @@ string db_supervisor::toString() {
     ss << Usuario::toString() << " Contador: " << contador << endl;
     return ss.str();
 }//Fin
+
+db_supervisor::~db_supervisor() {
+
+}//Fin del destructor

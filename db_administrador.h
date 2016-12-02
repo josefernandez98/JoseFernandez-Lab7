@@ -11,6 +11,7 @@ class db_administrador : public Usuario {
     public:
         db_administrador();
         db_administrador(string);
+        virtual ~db_administrador();
         string getFecha();
         void setFecha();
         string toString();

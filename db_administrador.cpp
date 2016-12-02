@@ -16,4 +16,8 @@ string db_administrador::toString() {
     stringstream ss;
     ss << Usuario::toString() << " Fecha: " << fecha << endl;
     return ss.str();
-}
+}//Fin del metodo
+
+db_administrador::~db_administrador() {
+
+}//Fin

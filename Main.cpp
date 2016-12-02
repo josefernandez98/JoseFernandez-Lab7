@@ -9,11 +9,12 @@
 
 
 int main(int argc, char const *argv[]) {
+    Usuario* instancia;
     vector<db_administrador> administrador;
     vector<db_intern> interns;
     vector<db_manager> managers;
     vector<db_supervisor> supervisors;
-
+    
 
 
 
