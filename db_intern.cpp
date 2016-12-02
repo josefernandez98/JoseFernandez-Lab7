@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "Usuario.h"
 #include "db_intern.h"
 
@@ -10,3 +11,9 @@ db_intern::db_intern() {
 db_intern::db_intern(int dias):Usuario(nombre, correo, password) {
     this->dias = dias;
 }//Fin
+
+string db_intern::toString() {
+    stringstream ss;
+    ss << Usuario::toString() << " Dias: " << dias << endl;
+    return ss.str();
+}

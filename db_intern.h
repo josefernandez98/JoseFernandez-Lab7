@@ -14,5 +14,4 @@ class db_intern : public Usuario {
         int getDias();
         void setDias();
         string toString();
-
 };
