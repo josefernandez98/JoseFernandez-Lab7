@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class db_administrador : Public Usuario {
+class db_administrador : public Usuario {
     private:
         string fecha;
     public:

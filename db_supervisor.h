@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class db_supervisor : Public Usuario {
+class db_supervisor : public Usuario {
     private:
         int contador;
     public:

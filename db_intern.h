@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class db_intern : Public Usuario {
+class db_intern : public Usuario {
     private:
         int dias;
     public:
