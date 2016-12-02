@@ -16,9 +16,9 @@ Usuario::Usuario (string nomrbe, string correo, string password) {
 
 string Usuario::toString() {
     stringstream ss;
-    ss << "Nombre: " << nombre << endl;
-    ss << "Correo: " << correo << endl;
-    ss << "Password: " << password << endl;
+    ss << nombre << " ";
+    ss << correo << " ";
+    ss << password << " ";
     return ss.str();
 }//Fin del to string
 

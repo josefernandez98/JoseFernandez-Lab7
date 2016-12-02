@@ -10,7 +10,7 @@ class db_intern : public Usuario {
         int dias;
     public:
         db_intern();
-        db_intern(int);
+        db_intern(string, string, string, int);
         virtual ~db_intern();
         int getDias();
         void setDias();

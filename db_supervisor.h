@@ -10,7 +10,7 @@ class db_supervisor : public Usuario {
         int contador;
     public:
         db_supervisor();
-        db_supervisor(int);
+        db_supervisor(string, string, string, int);
         virtual ~db_supervisor();
         int getContador();
         void setContador();

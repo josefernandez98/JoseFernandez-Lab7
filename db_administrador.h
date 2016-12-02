@@ -10,7 +10,7 @@ class db_administrador : public Usuario {
         string fecha;
     public:
         db_administrador();
-        db_administrador(string);
+        db_administrador(string, string, string, string);
         virtual ~db_administrador();
         string getFecha();
         void setFecha();

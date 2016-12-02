@@ -10,7 +10,7 @@ class db_manager : public Usuario {
         int sueldo;
     public:
         db_manager();
-        db_manager(int);
+        db_manager(string, string, string, int);
         virtual ~db_manager();
         int getSueldo();
         void setSueldo();

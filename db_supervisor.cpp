@@ -8,13 +8,13 @@ db_supervisor::db_supervisor() {
 
 }//Fin del metodo
 
-db_supervisor::db_supervisor(int contador):Usuario(nombre, correo, password) {
+db_supervisor::db_supervisor(string nombre, string correo, string password, int contador):Usuario(nombre, correo, password) {
     this->contador = contador;
 }//Fin
 
 string db_supervisor::toString() {
     stringstream ss;
-    ss << Usuario::toString() << " Contador: " << contador << endl;
+    ss << Usuario::toString() << " " << contador << " ";
     return ss.str();
 }//Fin
 

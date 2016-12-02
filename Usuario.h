@@ -5,9 +5,11 @@
 using namespace std;
 
 class Usuario {
-    protected:
+    public:
         Usuario();
         Usuario(string, string, string);
+        virtual ~Usuario();
+    protected:
         void setNombre(string);
         void setCorreo(string);
         void setPassword(string);
@@ -17,7 +19,6 @@ class Usuario {
         string nombre;
         string correo;
         string password;
-        virtual ~Usuario();
         string toString();
         virtual int TamContra(string);
 };

@@ -8,13 +8,13 @@ db_intern::db_intern() {
 
 }//Fin del metodo
 
-db_intern::db_intern(int dias):Usuario(nombre, correo, password) {
+db_intern::db_intern(string nombre, string correo, string password, int dias):Usuario(nombre, correo, password) {
     this->dias = dias;
 }//Fin
 
 string db_intern::toString() {
     stringstream ss;
-    ss << Usuario::toString() << " Dias: " << dias << endl;
+    ss << Usuario::toString() << " " << dias << " ";
     return ss.str();
 }
 
