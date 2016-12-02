@@ -8,7 +8,7 @@ Usuario::Usuario () {
 
 }//Fin
 
-Usuario::Usuario (string nomrbe, string correo, string password) {
+Usuario::Usuario (string nombre, string correo, string password) {
     this->nombre = nombre;
     this->correo = correo;
     this->password = password;

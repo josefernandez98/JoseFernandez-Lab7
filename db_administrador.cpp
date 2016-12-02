@@ -18,6 +18,7 @@ string db_administrador::toString() {
     return ss.str();
 }//Fin del metodo
 
+
 db_administrador::~db_administrador() {
 
 }//Fin

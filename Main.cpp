@@ -15,12 +15,18 @@ void MenuManager();
 void MenuSupervisor();
 
 int main(int argc, char const *argv[]) {
-    Usuario* instancia = new Usuario();
     vector<db_intern> interns;
     vector<db_manager> managers;
     vector<db_supervisor> supervisors;
-
-
+    Usuario* administrador = new db_administrador("admin", "admin@jose", "admin123", "2016");
+    string nombre = "", pass = "";
+    cout << "Ingrese el nombre del usuario:";
+    cin >> nombre;
+    cout << endl << "Ingrese la password del usuario:";
+    cin >> pass;
+    if ((administrador->getNombre() == nombre) && (administrador->getPassword() == pass)) {
+        cout << "entro.";
+    }
 
 
 
