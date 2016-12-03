@@ -14,7 +14,7 @@ db_manager::db_manager(string nombre, string correo, string password, int sueldo
 
 string db_manager::toString() {
     stringstream ss;
-    ss << Usuario::toString() << " " << sueldo << " ";
+    ss << Usuario::toString() << ";" << sueldo << ";";
     return ss.str();
 }//Fin
 

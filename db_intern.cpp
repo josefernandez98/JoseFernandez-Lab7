@@ -14,7 +14,7 @@ db_intern::db_intern(string nombre, string correo, string password, int dias):Us
 
 string db_intern::toString() {
     stringstream ss;
-    ss << Usuario::toString() << " " << dias << " ";
+    ss << Usuario::toString() << ";" << dias << ";";
     return ss.str();
 }
 

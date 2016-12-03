@@ -14,7 +14,7 @@ db_administrador::db_administrador(string nombre, string correo, string password
 
 string db_administrador::toString() {
     stringstream ss;
-    ss << Usuario::toString() << " " << fecha << " ";
+    ss << Usuario::toString() << ";" << fecha << ";";
     return ss.str();
 }//Fin del metodo
 

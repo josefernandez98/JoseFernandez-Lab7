@@ -14,7 +14,7 @@ db_supervisor::db_supervisor(string nombre, string correo, string password, int 
 
 string db_supervisor::toString() {
     stringstream ss;
-    ss << Usuario::toString() << " " << contador << " ";
+    ss <<  Usuario::toString() << ";" << contador << ";";
     return ss.str();
 }//Fin
 

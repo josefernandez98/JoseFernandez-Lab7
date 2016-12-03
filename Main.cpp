@@ -6,6 +6,8 @@
 #include "db_intern.h"
 #include "db_manager.h"
 #include "db_supervisor.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -89,6 +91,13 @@ void MenuAdmin() {
             cin >> correo;
             cout << endl << "Ingrese la contrasena del usuario:";
             cin >> password;
+            if (password.size() < 16) {
+                for (;password.size() < 16;) {
+                    cout << "Cantidad de caracteres invalida." << endl;
+                    cout << endl << "Ingrese la contrasena del usuario:";
+                    cin >> password;
+                }
+            }
             cout << endl << "Ingrese el sueldo del usuario:";
             cin >> sueldo;
 
@@ -118,6 +127,13 @@ void MenuAdmin() {
             cin >> correo;
             cout << endl << "Ingrese la contrasena del usuario:";
             cin >> password;
+            if (password.size() < 8) {
+                for (;password.size() < 8;) {
+                    cout << "Cantidad de caracteres invalida." << endl;
+                    cout << endl << "Ingrese la contrasena del usuario:";
+                    cin >> password;
+                }
+            }
             cout << endl << "Ingrese el numero de dias del usuario:";
             cin >> dias;
             if (dias < 0) {
@@ -145,21 +161,36 @@ void MenuAdmin() {
             cin >> correo;
             cout << endl << "Ingrese la contrasena del usuario:";
             cin >> password;
+            if (password.size() < 8) {
+                for (;password.size() < 8;) {
+                    cout << "Cantidad de caracteres invalida." << endl;
+                    cout << endl << "Ingrese la contrasena del usuario:";
+                    cin >> password;
+                }
+            }
             contador++;
             supervisor = new db_supervisor(nombre, correo, password, contador);
             supervisors.push_back(supervisor);
+
             fstream file;
             file.open("Supervisors.txt", ios::app);
             for (int i = 0; i < supervisors.size(); i++) {
                 file << supervisors[i]->toString();
                 file << endl;
             }//Fin del for
+
             supervisor = NULL;
         }//Fin subOpcion3
 
     }//Fin del if opcion 1
 
     if (opcion == 2) {
+        db_manager* manager;
+        db_intern* intern;
+        db_supervisor* supervisor;
+        manager = new db_manager("Miguel", "Miguel@", "pass", 20);
+        intern = new db_intern("Moi", "Moi@", "contra", 10);
+        supervisor = new db_supervisor("fuck", "fuck", "pasw", 0);
         int pos = 0;
         cout << "1. Eliminar Manager." << endl;
         cout << "2. Eliminar Intern." << endl;
@@ -175,11 +206,20 @@ void MenuAdmin() {
         }//Fin del if
 
         if (subOpcion == 1) {
-
+            string name = "", email = "", PASS = "", money = "", days = "";
+            ifstream infile;
+            infile.open("Managers.txt");
+            while (!infile.eof()) {
+                getline(infile, name, ';');
+                getline(infile, email, ';');
+                getline(infile, PASS, ';');
+                getline(infile, money, ';');
+                managers.push_back(new db_manager(name, email, PASS, atoi(money.c_str())));
+            }//Fin del while
             cout << "Ingrese la posicion del usuario:";
             cin >> pos;
-            if ((pos < 0) || (pos >= managers.size())) {
-                for (;(pos < 0) || (pos >= managers.size());) {
+            if ((pos < 0) || (pos > managers.size())) {
+                for (;(pos < 0) || (pos > managers.size());) {
                     cout << "Posicion invalida." << endl;
                     cout << "Ingrese la posicion del usuario:";
                     cin >> pos;
@@ -187,6 +227,11 @@ void MenuAdmin() {
                 cout << endl;
             }//Fin del if
             managers.erase(managers.begin() + pos);
+            if (remove("Managers.txt") != 0) {
+                perror("No se borro");
+            } else {
+                puts("Se borro.");
+            }
             fstream file;
             file.open("Managers.txt");
             for (int i = 0; i < managers.size(); i++) {
@@ -200,14 +245,13 @@ void MenuAdmin() {
 
             cout << endl << "Ingrese la posicion del usuario:";
             cin >> pos;
-            if ((pos < 0) || (pos >= interns.size())) {
-                for (;(pos < 0) || (pos >= interns.size());) {
+            if ((pos < 0) || (pos > interns.size())) {
+                for (;(pos < 0) || (pos > interns.size());) {
                     cout << "Valor invalido." << endl;
                     cout << "Ingrese la posicion del usuario:";
                     cin >> pos;
                 }//Fin del for
             }//Fin del if sueldo
-
             fstream file;
             file.open("Interns.txt");
             for (int i = 0; i < interns.size(); i++) {
